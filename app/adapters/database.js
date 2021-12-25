@@ -5,7 +5,7 @@ const pool = {
   host: process.env.PGHOST,
   database: process.env.PGDATABASE,
   password: process.env.PGPASSWORD,
-  port: Number(process.env.PGPORT),
+  port: process.env.PGPORT,
 };
 
 const postgresql = new Pool(pool);
@@ -17,4 +17,4 @@ try {
   console.log(error);
 }
 
-exports.postgresql = postgresql
+exports.postgresql = postgresql;
