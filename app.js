@@ -4,6 +4,8 @@ const pg = require('./app/adapters/database')
 const vehiclesContoller = require('./app/controllers/vehiclesController')
 const devicesController = require('./app/controllers/devicesController')
 const deviceTypeController = require('./app/controllers/deviceTypeController')
+const logTemperatureController = require('./app/controllers/logTemperatureController')
+const logLocationController = require('./app/controllers/logLocationController')
 const app = express();
 
 // Middleware
@@ -28,6 +30,12 @@ app.delete('/device_delete/:id', devicesController.deleteDevices)
 app.get('/type_list', deviceTypeController.getAllDeviceType)
 app.post('/type_add', deviceTypeController.createDeviceType)
 app.delete('/device_delete/:id', deviceTypeController.deleteDeviceType)
+
+app.get('/temp_list', logTemperatureController.getAllLogTemperature)
+app.post('/temp_add', logTemperatureController.createLogTemperature)
+
+app.get('/gps_list', logLocationController.getAllLogLocation)
+app.post('/gps_add', logLocationController.createLogLocation)
 
 const port = process.env.PORT || 3000;
 
