@@ -1,11 +1,11 @@
 const express = require("express");
 require('dotenv').config({ path: __dirname+'/.env' })
 const pg = require('./app/adapters/database')
-const vehiclesContoller = require('./app/controllers/vehiclesController')
-const devicesController = require('./app/controllers/devicesController')
-const deviceTypeController = require('./app/controllers/deviceTypeController')
-const logTemperatureController = require('./app/controllers/logTemperatureController')
-const logLocationController = require('./app/controllers/logLocationController')
+const vehicleRouter = require('./app/routes/vehicleRouter')
+const deviceRouter = require('./app/routes/deviceRouter')
+const deviceTypeRouter = require('./app/routes/deviceTypeRouter')
+const logTemperatureRouter = require('./app/routes/logTemperatureRouter')
+const logLocationRouter = require('./app/routes/logLocationRouter')
 const app = express();
 
 // Middleware
@@ -13,29 +13,11 @@ app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 
 // Routes
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
-
-app.get('/vehicle_list', vehiclesContoller.getAllVehicle)
-app.post('/vehicle_add', vehiclesContoller.createVehicle)
-app.patch('/vehicle_update/:id', vehiclesContoller.updateVehicle)
-app.delete('/vehicle_delete/:id', vehiclesContoller.deleteVehicle)
-
-app.get('/device_list', devicesController.getAllDevices)
-app.post('/device_add', devicesController.createDevice)
-app.patch('/device_update/:id', devicesController.updateDevices)
-app.delete('/device_delete/:id', devicesController.deleteDevices)
-
-app.get('/type_list', deviceTypeController.getAllDeviceType)
-app.post('/type_add', deviceTypeController.createDeviceType)
-app.delete('/device_delete/:id', deviceTypeController.deleteDeviceType)
-
-app.get('/temp_list', logTemperatureController.getAllLogTemperature)
-app.post('/temp_add', logTemperatureController.createLogTemperature)
-
-app.get('/gps_list', logLocationController.getAllLogLocation)
-app.post('/gps_add', logLocationController.createLogLocation)
+app.use('/vehicle', vehicleRouter)
+app.use('/device', deviceRouter)
+app.use('/device_type', deviceTypeRouter)
+app.use('/log_temperature', logTemperatureRouter)
+app.use('/log_location', logLocationRouter)
 
 const port = process.env.PORT || 3000;
 
