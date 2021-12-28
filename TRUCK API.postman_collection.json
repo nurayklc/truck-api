@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "396d553c-6770-4c75-9253-df40f26e4cb6",
+		"name": "TRUCK API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Vehicle REQUESTS",
+			"item": [
+				{
+					"name": "Vehicle ALL LIST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/vehicle/vehicle_list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"vehicle",
+								"vehicle_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vehicle ADD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"vehicle_plate\" : \"57 LM 231\",\r\n\t\"current_status\" : 1,\r\n\t\"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/vehicle/vehicle_add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"vehicle",
+								"vehicle_add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vehicle DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/vehicle/vehicle_delete/:id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"vehicle",
+								"vehicle_delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vehicle UPDATE",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"vehicle_plate\" : \"57 MN 441\",\r\n\t\"current_status\" : 3,\r\n\t\"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/vehicle/vehicle_update/:id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"vehicle",
+								"vehicle_update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Devices TYPE REQUESTS",
+			"item": [
+				{
+					"name": "Devices Type ADD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"device_name\": \"GPS\",\r\n    \"device_description\" : \"GPS Aciklamasi\",\r\n    \"is_active\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/device_type/type_add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"device_type",
+								"type_add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device Type LIST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/device_type/type_list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"device_type",
+								"type_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device Type DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/device_type/device_delete/:id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"device_type",
+								"device_delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Device REQUESTS",
+			"item": [
+				{
+					"name": "Device ADD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vehicle_id\" : 4,\r\n    \"device_type_id\" : 1,\r\n    \"device_name\" : \"GPS\",\r\n    \"is_online\": true,\r\n    \"is_active\" : false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/device/device_add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"device",
+								"device_add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device ALL LIST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/device/device_list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"device",
+								"device_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/device/device_delete/:id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"device",
+								"device_delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device UPDATE",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vehicle_id\" : 4,\r\n    \"device_type_id\" : 1,\r\n    \"device_name\" : \"Sicaklik Sensoru\",\r\n    \"is_online\" : false,\r\n    \"is_active\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/device/device_update/:id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"device",
+								"device_update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Log Temperature REQUESTS",
+			"item": [
+				{
+					"name": "Temperature ALL LIST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/log_temperature/temp_list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"log_temperature",
+								"temp_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD Temperature",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vehicle_id\" : 6,\r\n    \"device_id\" : 1,\r\n    \"read_data\" : \"Log Temperature Read Data Column\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/log_temperature/temp_add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"log_temperature",
+								"temp_add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Log Location REQUESTS",
+			"item": [
+				{
+					"name": "GPS ALL LIST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/log_location/gps_list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"log_location",
+								"gps_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD  GPS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vehicle_id\" : 4,\r\n    \"device_id\" : 2,\r\n    \"latitude\" : \"Log Location Latitude 2\",\r\n    \"longitude\" : \"Log Location Longitude 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/log_location/gps_add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"log_location",
+								"gps_add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000"
+		}
+	]
+}
