@@ -1,6 +1,6 @@
 # Node.js API 
 
-### Kullanılan Teknolojiler
+### Used Techs
 - Node.js
 - PostgreSQL
 - Postman
@@ -10,15 +10,19 @@
 - Dotenv
 
 ---
-### Projeyi Çalıştırmak İçin 
+### Run Project
 ``` 
 npm install
 npm start
 ```
-Browser da **http://localhost:3000** yazarak açabilirsiniz.
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in your browser.
+
+The page will reload when you make changes.
+You may also see any lint errors in the console.
 
 ---
-## Postman Requestleri
+## Postman Requests
 
 Parent root -> /vehicle
 
