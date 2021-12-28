@@ -1,7 +1,7 @@
 const { postgresql } = require("../adapters/database");
 
 exports.getAllDeviceType = async (req, res) => {
-  await postgresql.query("SELECT * from devices_type", (error, results) => {
+  await postgresql.query("SELECT id,device_name, device_description, is_active from devices_type", (error, results) => {
     if (error) throw error;
     res.status(200).json(results.rows);
   });

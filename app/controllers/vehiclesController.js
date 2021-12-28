@@ -2,7 +2,7 @@ const { postgresql } = require("./../adapters/database.js");
 
 exports.getAllVehicle = async (req, res) => {
   await postgresql.query(
-    "SELECT * from vehicles ORDER BY id ASC",
+    "SELECT id,vehicle_plate, current_status, is_active from vehicles ORDER BY id ASC",
     (error, results) => {
       if (error) throw error;
       res.status(200).json(results.rows);

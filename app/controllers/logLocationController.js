@@ -1,7 +1,7 @@
 const { postgresql } = require('./../adapters/database')
 
 exports.getAllLogLocation = async (req, res) => {
-    await postgresql.query('SELECT * FROM log_location', (error, results) =>{
+    await postgresql.query('SELECT id,vehicle_id,device_id,latitude, longitude,created_at FROM log_location', (error, results) =>{
         if(error) throw error
         res.status(200).json(results.rows)
     })
