@@ -8,6 +8,16 @@ const logTemperatureRouter = require('./app/routes/logTemperatureRouter')
 const logLocationRouter = require('./app/routes/logLocationRouter')
 const app = express();
 
+// Swagger Entegration
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require('./swagger.json');
+
+app.use(
+  '/api-docs',
+  swaggerUi.serve, 
+  swaggerUi.setup(swaggerDocument)
+);
+
 // Middleware
 app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
